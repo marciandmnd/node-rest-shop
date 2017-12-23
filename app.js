@@ -11,6 +11,7 @@ mongoose.connect('mongodb://marciandmnd:' + process.env.MONGO_ATLAS_PW + '@node-
 { 
   useMongoClient: true
 });
+mongoose.Promise = global.Promise; //use node promise implementation
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
