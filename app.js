@@ -14,6 +14,7 @@ mongoose.connect('mongodb://marciandmnd:' + process.env.MONGO_ATLAS_PW + '@node-
 mongoose.Promise = global.Promise; //use node promise implementation
 
 app.use(morgan('dev'));
+app.use('/uploads', express.static('uploads')); // make uploads directory publicly available
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
