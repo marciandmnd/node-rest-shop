@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
+const userRoutes = require('./api/routes/user');
 
 mongoose.connect('mongodb://marciandmnd:' + process.env.MONGO_ATLAS_PW + '@node-rest-shop-shard-00-00-wb7cg.mongodb.net:27017,node-rest-shop-shard-00-01-wb7cg.mongodb.net:27017,node-rest-shop-shard-00-02-wb7cg.mongodb.net:27017/test?ssl=true&replicaSet=node-rest-shop-shard-0&authSource=admin',
 { 
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+app.use('/user', userRoutes);
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
